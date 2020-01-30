@@ -1,0 +1,26 @@
+version: "3.4"
+
+x-default_env: &default_env
+  DATABASE_HOST: "postgres"
+  DATABASE_NAME: "home"
+  DATABASE_USER: "home"
+  DATABASE_PASSWORD: "123456"
+
+services:
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_USER: "home"
+      POSTGRES_DB: "home"
+      POSTGRES_PASSWORD: "123456"
+    ports:
+      - "5432:5432"
+    volumes:
+    - /Users/Markelov-DS/pgdata:/var/lib/postgresql/data postgres
+  api:
+    build: .
+    command: runserver 0.0.0.0:8000
+    ports:
+      - "8000:8000"
+    environment:
+      <<: *default_env

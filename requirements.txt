@@ -1,0 +1,9 @@
+django
+django-composite-foreignkey
+djangorestframework-csv
+djangorestframework==3.11.0
+django-model-utils
+psycopg2-binary
+django-guardian
+django-fsm
+pymssql==2.1.4
